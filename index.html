@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cache Simulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <img src="FRI_logo_eng.png" alt="FRI Logo" class="fri-logo">
+        <h1>Cache Simulator</h1>
+    </header>
+
+    <!-- Main Content Container -->
+    <div id="main-content">
+        <!-- Left Panel -->
+        <div id="left-panel">
+            <!-- Cache Configuration -->
+            <div id="configuration">
+                <h2>
+                    Cache Configuration
+                    <button id="toggleConfigButton">Minimize</button>
+                </h2>
+                <div id="configContent">
+                    <form id="configForm">
+                        <label for="cacheSize">Cache Size (bytes):</label>
+                        <input type="number" id="cacheSize" value="64" required><br>
+
+                        <label for="blockSize">Block Size (bytes):</label>
+                        <input type="number" id="blockSize" value="8" required><br>
+
+                        <label for="associativity">Associativity:</label>
+                        <select id="associativity">
+                            <option value="1">Direct Mapped (1-way)</option>
+                            <option value="2">2-way</option>
+                            <option value="4">4-way</option>
+                        </select><br>
+
+                        <label for="replacementPolicy">Replacement Policy:</label>
+                        <select id="replacementPolicy">
+                            <option value="LRU">LRU</option>
+                            <option value="FIFO">FIFO</option>
+                            <option value="Random">Random</option>
+                        </select><br>
+
+                        <button type="submit">Initialize Cache</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Memory Access Sequence Input -->
+            <div id="accessInput">
+                <h2>
+                    Memory Access Sequence
+                    <button id="toggleAccessButton">Minimize</button>
+                </h2>
+                <div id="accessContent">
+                    <textarea id="accessSequence" rows="5" cols="50" placeholder="Enter memory addresses: 1) Comma-separated (e.g., 0,4,8), or 2) Ranges (e.g., 1-2-5 for 1 to 5 with step 2). You can combine both." required></textarea><br>
+                    <button id="parseSequence">Parse Sequence</button>
+                </div>
+            </div>
+
+            <!-- Simulation Controls -->
+            <div id="controls">
+                <button id="backButton" disabled>Back</button>
+                <button id="nextButton" disabled>Next</button>
+                <button id="skipButton" disabled>Skip</button>
+                <button id="resetButton" disabled>Reset Simulation</button>
+            </div>
+
+            <!-- Cache States Display -->
+            <div id="cacheStates">
+                <h2>Cache State</h2>
+                <div id="previousCacheState">
+                    <h3>Previous Cache State</h3>
+                    <pre id="prevCacheStateDisplay"></pre>
+                </div>
+                <div id="currentCacheState">
+                    <h3>Current Cache State</h3>
+                    <pre id="currCacheStateDisplay"></pre>
+                </div>
+            </div>
+
+            <!-- Statistics Display -->
+            <div id="statistics" style="display: none;">
+                <h2>Statistics</h2>
+                <p id="detailedStatistics"></p>
+            </div>
+        </div>
+
+        <!-- Simulation Table -->
+        <div id="simulation-table-container">
+            <div id="simulation">
+                <table id="cacheTable">
+                    <thead>
+                        <tr>
+                            <th>Access #</th>
+                            <th>Address (Hex)</th>
+                            <th>Address (Decimal)</th>
+                            <th>Address (Binary)</th>
+                            <th>Tag</th>
+                            <th>Set</th>
+                            <th>Hit/Miss</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Simulation rows will be appended here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

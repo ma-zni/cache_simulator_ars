@@ -1,0 +1,259 @@
+/* Reset and Base Styles */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 10px;
+    background-color: #fff5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header Styles */
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 40px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #e12926;
+    background-color: white;
+    position: relative; /* Added for absolute positioning context */
+}
+
+.fri-logo {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+}
+
+h1 {
+    color: #00008B;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: absolute; /* Position absolutely */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Offset by half its width */
+    text-align: center;
+}
+
+h2 {
+    color: #00008B;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+h3 {
+    color: #00008B;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+/* Layout Structure */
+#main-content {
+    display: flex;
+    gap: 20px;
+    max-width: 98%;
+    margin: 0 auto;
+}
+
+#left-panel {
+    flex: 0 0 400px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Form Elements */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #00008B;
+    font-weight: 500;
+}
+
+input[type="number"], select, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #fbd5d5;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+input[type="number"]:focus, select:focus, textarea:focus {
+    border-color: #e12926;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(225,41,38,0.1);
+}
+
+/* Button Styles */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    background-color: #e12926;
+    color: white;
+}
+
+button:hover {
+    background-color: #c61a17;
+    transform: translateY(-1px);
+}
+
+button:disabled {
+    background-color: #ff9999;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Special buttons for Initialize Cache and Parse Sequence */
+#configForm button[type="submit"], #parseSequence {
+    background-color: #e12926;
+    color: white;
+    font-size: 14px;
+    padding: 8px 16px;
+    width: 80%;
+    margin: 15px auto 0;
+    border: 2px solid transparent;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: block;
+}
+
+#configForm button[type="submit"]:hover, #parseSequence:hover {
+    background-color: #c61a17;
+    border-color: #e12926;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+}
+
+#controls {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+/* Cache States Display */
+#cacheStates pre {
+    background-color: #fff5f5;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #fed7d7;
+    font-family: 'Consolas', monospace;
+    max-height: 300px;
+    overflow: auto;
+}
+
+/* Simulation Table */
+#simulation-table-container {
+    flex: 1;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow: auto;
+}
+
+#cacheTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#cacheTable th, #cacheTable td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #fed7d7;
+}
+
+#cacheTable th {
+    background-color: #fff5f5;
+    font-weight: 600;
+    color: #00008B;
+}
+
+/* Hit/Miss Colors */
+.hit {
+    background-color: #90EE90;
+}
+
+.miss {
+    background-color: #FFE4E1;
+}
+
+.compulsory-miss {
+    background-color: #ffffcc;
+}
+
+.capacity-miss {
+    background-color: #ffebcc;
+}
+
+.conflict-miss {
+    background-color: #ffe6e6;
+}
+
+/* Statistics Section */
+#statistics {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+#detailedStatistics {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Toggle Buttons */
+#toggleConfigButton, #toggleAccessButton {
+    background-color: transparent;
+    color: #00008B;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+#toggleConfigButton:hover, #toggleAccessButton:hover {
+    background-color: #fff5f5;
+}
+
+/* Section Divider */
+.section-divider {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #e12926, transparent);
+    margin: 25px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    #main-content {
+        flex-direction: column;
+    }
+    
+    #left-panel {
+        flex: none;
+        width: auto;
+        margin-bottom: 20px;
+    }
+    
+    .site-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
